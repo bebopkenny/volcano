@@ -1,0 +1,21 @@
+# One entry per case. Every onset must record its source.
+# Times are UTC. Windows are whole UTC days, inclusive.
+cases:
+  - id: mauna-loa-2022
+    volcano: Mauna Loa
+    region: Hawaii, USA
+    lat: 19.475
+    lon: -155.608
+    type: eruption
+    # USGS HVO: eruption began about 11:30 p.m. HST on Nov 27, 2022 in
+    # Mokuaweoweo caldera. HST is UTC-10, so 09:30 UTC on Nov 28.
+    onset: "2022-11-28T09:30:00Z"
+    window_start: "2022-08-29"
+    window_end: "2022-12-10"
+    fdsn_url: https://service.earthscope.org
+    network: HV
+    station: MOKD   # broadband on the summit caldera rim, running since 2010
+    channel: HHZ
+    sources:
+      - "USGS HVO: https://www.usgs.gov/volcanoes/mauna-loa/science/november-27-december-10-2022-eruption-mauna-loa"
+      - "GVP volcano 332020 (cross check pending)"
