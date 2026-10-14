@@ -32,3 +32,4 @@ __pycache__
 .pytest_cache
 pipeline/data/raw/
 pipeline/data/interim/
+pipeline/data/results/
