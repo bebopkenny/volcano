@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from volcano.models import best_threshold, case_metrics, predict
+from volcano.models import RUNS, best_threshold, case_metrics, predict
 
 
 def test_best_threshold():
@@ -32,11 +32,14 @@ def test_held_out_case_never_seen_in_training():
                                   "rsam_median_rel": rng.normal(size=30) + y, "frp_max": rng.normal(size=30),
                                   "label_2d": y}))
     df = pd.concat(rows, ignore_index=True)
-    before = predict(df, "label_2d")
+    for c in ("rsam_median_rel_trend7", "dsar_median_rel", "dsar_median_rel_trend7", "frp_max_trend30"):
+        df[c] = rng.normal(size=len(df))
+    df["frp_max"] = df["frp_max"].abs()
     flipped = df.copy()
     flipped.loc[flipped["case"] == "a", "label_2d"] = 1 - flipped["label_2d"]
-    after = predict(flipped, "label_2d")
     a = df["case"] == "a"
-    for k in ("A", "B"):
-        pd.testing.assert_series_equal(before.loc[a, f"score_{k}"], after.loc[a, f"score_{k}"])
-        pd.testing.assert_series_equal(before.loc[a, f"thr_{k}"], after.loc[a, f"thr_{k}"])
+    for run in RUNS:
+        before, after = predict(df, "label_2d", run), predict(flipped, "label_2d", run)
+        for k in ("A", "B"):
+            pd.testing.assert_series_equal(before.loc[a, f"score_{k}"], after.loc[a, f"score_{k}"])
+            pd.testing.assert_series_equal(before.loc[a, f"thr_{k}"], after.loc[a, f"thr_{k}"])

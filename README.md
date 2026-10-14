@@ -99,6 +99,8 @@ Every run is reported, including runs that did badly. A run's design is written 
 - Model B: Model A plus `frp_max` (as log(1 + MW)) and `frp_max_trend30`
 - Logistic regression with balanced class weights and default regularisation (C = 1). Missing values filled with the training median, then features standardised.
 
+Result on the first 6 cases: worse than Run 1. At a 2 day horizon ROC AUC was 0.09 (A) and 0.16 (B), well below chance, and both models alarmed on nearly every day. At 7 days: 0.46 (A) and 0.41 (B) against 0.66 for Baseline 0. The cause is in the data, not the code: in the 2 days before onset RSAM was about 7 times normal at Shishaldin but below normal at Kīlauea 2020 and Great Sitkin. A model trained without Shishaldin learns that quiet days come before eruptions and ranks Shishaldin backwards. Baseline 0 avoids this because "high RSAM means danger" is fixed, not learned from three examples.
+
 **Then:** add more eruption cases and re-run both Run 1 and Run 2 unchanged on the larger set.
 
 ## Cases
