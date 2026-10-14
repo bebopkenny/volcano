@@ -86,6 +86,21 @@ Windows are aggregated to one row per UTC day. Because raw amplitude depends on 
 
 **No leakage.** Every feature on a given day uses data from that day and earlier only. A test changes the future and confirms the past does not move.
 
+**Evaluation.** Leave-one-case-out: each case is scored by models trained on the other cases only. The alert threshold for a held-out case is the one with the best F1 on the training cases, using scores those cases got while held out themselves (an inner leave-one-case-out). Metrics: ROC AUC, PR AUC, eruptions detected, lead time, and false alarm days per year during unrest cases. 95% intervals come from resampling whole cases.
+
+## Model runs
+
+Every run is reported, including runs that did badly. A run's design is written here and committed before it is run.
+
+**Run 1 (`rf`), 2026-10-14.** Random forest (300 trees, min 3 samples per leaf, balanced class weights, seed 0). Model A: all 42 station-relative seismic features. Model B: those plus all 23 thermal features. Baseline 0: today's RSAM relative to the station's normal. Result on the first 6 cases: neither model beat Baseline 0. At a 2 day horizon ROC AUC was 0.58 (Baseline 0), 0.57 (A) and 0.43 (B); false alarms during unrest were 3, 76 and 270 days per year. Model B raised an alarm on every day of the Kīlauea 2024 unrest, where the crater was still warm from the September 2023 eruption. With only 8 positive days, 66 features were too many.
+
+**Run 2 (`logreg`), design fixed 2026-10-14, before running.** Fewer features and a simpler model, chosen because Run 1 overfit. Everything else (cases, labels, thresholds, metrics) is unchanged.
+- Model A: `rsam_median_rel`, `rsam_median_rel_trend7`, `dsar_median_rel`, `dsar_median_rel_trend7`
+- Model B: Model A plus `frp_max` (as log(1 + MW)) and `frp_max_trend30`
+- Logistic regression with balanced class weights and default regularisation (C = 1). Missing values filled with the training median, then features standardised.
+
+**Then:** add more eruption cases and re-run both Run 1 and Run 2 unchanged on the larger set.
+
 ## Cases
 
 | Case | Type | Onset (UTC) | Station | Source |
