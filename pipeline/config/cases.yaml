@@ -19,3 +19,97 @@ cases:
     sources:
       - "USGS HVO: https://www.usgs.gov/volcanoes/mauna-loa/science/november-27-december-10-2022-eruption-mauna-loa"
       - "GVP volcano 332020 (cross check pending)"
+
+  - id: kilauea-2020
+    volcano: Kilauea
+    region: Hawaii, USA
+    lat: 19.405     # Halemaumau crater
+    lon: -155.281
+    type: eruption
+    # USGS HVO: glow first seen in Halemaumau shortly after 9:30 p.m. HST on Dec 20, 2020,
+    # ending a two year pause. HST is UTC-10, so 07:30 UTC on Dec 21.
+    onset: "2020-12-21T07:30:00Z"
+    window_start: "2020-09-21"
+    window_end: "2021-01-01"
+    fdsn_url: https://service.earthscope.org
+    network: HV
+    station: UWE    # Uwekahuna, broadband on the summit caldera rim
+    channel: HHZ
+    sources:
+      - "USGS HVO: https://www.usgs.gov/volcanoes/kilauea/news/photo-and-video-chronology-kilauea-december-20-2020"
+
+  - id: shishaldin-2023
+    volcano: Shishaldin
+    region: Alaska, USA
+    lat: 54.756
+    lon: -163.970
+    type: eruption
+    # AVO raised to YELLOW on Jul 11, 2023 for strongly elevated summit temperatures, then
+    # ORANGE on Jul 12 after incandescence in webcam images "last night" showed lava was
+    # likely in the summit crater. No exact onset time is published; 06:00 UTC Jul 12 is
+    # 22:00 AKDT Jul 11, the start of that night. Approximate to within about a day.
+    onset: "2023-07-12T06:00:00Z"
+    window_start: "2023-04-12"
+    window_end: "2023-07-24"
+    fdsn_url: https://service.earthscope.org
+    network: AV
+    station: SSLS   # 5.5 km from the summit
+    channel: BHZ
+    sources:
+      - "AVO HANS: https://avo.alaska.edu/news/hans/DOI-USGS-AVO-2023-07-18T13:13:17-08:00"
+      - "AVO HANS: https://volcanoes.usgs.gov/hans-public/notice/DOI-USGS-AVO-2023-07-18T06:10:01-08:00"
+
+  - id: great-sitkin-2021
+    volcano: Great Sitkin
+    region: Alaska, USA
+    lat: 52.076
+    lon: -176.130
+    type: eruption
+    # AVO: explosion at 21:04 AKDT on May 25, 2021 (05:04 UTC May 26), after about 24 hours
+    # of long period earthquakes. Lava effusion followed from mid July 2021.
+    onset: "2021-05-26T05:04:00Z"
+    window_start: "2021-02-25"
+    window_end: "2021-06-07"
+    fdsn_url: https://service.earthscope.org
+    network: AV
+    station: GSTD   # 2.5 km from the summit
+    channel: BHZ
+    sources:
+      - "AVO image and caption: https://avo.alaska.edu/images/image.php?id=170261"
+
+  - id: spurr-2025
+    volcano: Mount Spurr
+    region: Alaska, USA
+    lat: 61.299
+    lon: -152.251
+    type: unrest
+    # AVO: earthquakes rose from April 2024 and peaked early 2025; AVO said in Feb 2025 an
+    # eruption was possible. By June 2025 the intrusion had stalled. No eruption.
+    window_start: "2025-01-01"
+    window_end: "2025-04-30"
+    fdsn_url: https://service.earthscope.org
+    network: AV
+    station: SPCP   # 6.3 km from the summit
+    channel: BHZ
+    sources:
+      - "AVO HANS: https://avo.alaska.edu/news/hans/DOI-USGS-AVO-2025-02-07T01:17:45+00:00"
+      - "AVO HANS: https://avo.alaska.edu/news/hans/DOI-USGS-AVO-2025-06-13T18:14:45+00:00"
+
+  - id: kilauea-2024-intrusion
+    volcano: Kilauea
+    region: Hawaii, USA
+    lat: 19.405
+    lon: -155.281
+    type: unrest
+    # USGS HVO: Oct 2023 and Jan 31 to Feb 2, 2024 dike intrusions southwest of the summit,
+    # alert raised to WATCH on Jan 31 then lowered Feb 3. No eruption until Jun 3, 2024,
+    # over 90 days after this window ends.
+    window_start: "2023-11-15"
+    window_end: "2024-02-29"
+    fdsn_url: https://service.earthscope.org
+    network: HV
+    station: UWE
+    channel: HHZ
+    sources:
+      - "USGS HVO: https://volcanoes.usgs.gov/hans-public/notice/DOI-USGS-HVO-2024-02-01T19:44:10+00:00"
+      - "USGS HVO: https://www.usgs.gov/observatories/hvo/news/volcano-watch-kilauea-intrusion-was-a-textbook-example-dike-propagation"
