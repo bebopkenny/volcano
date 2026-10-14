@@ -129,7 +129,9 @@ cases:
     window_end: "2021-10-11"
     fdsn_url: https://service.earthscope.org
     network: HV
-    station: UWE
+    # not UWE: its sensor misbehaved Aug to Oct 2021 (2 to 5 Hz amplitude 0.02 to 26 times
+    # that of SDH and RIMD, which agree with each other) and that epoch ends 2021-10-27
+    station: SDH
     channel: HHZ
     sources:
       - "USGS: https://www.usgs.gov/news/new-eruption-k-lauea-summit"
