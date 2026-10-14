@@ -113,3 +113,117 @@ cases:
     sources:
       - "USGS HVO: https://volcanoes.usgs.gov/hans-public/notice/DOI-USGS-HVO-2024-02-01T19:44:10+00:00"
       - "USGS HVO: https://www.usgs.gov/observatories/hvo/news/volcano-watch-kilauea-intrusion-was-a-textbook-example-dike-propagation"
+
+  # Added 2026-10-14 to get more eruptions (Run 1 and Run 2 had only 4). Each Kilauea
+  # window starts after the previous eruption ended, so no window holds an ongoing eruption.
+  - id: kilauea-2021
+    volcano: Kilauea
+    region: Hawaii, USA
+    lat: 19.405
+    lon: -155.281
+    type: eruption
+    # USGS: began about 3:20 p.m. HST Sep 29, 2021 in Halemaumau (01:20 UTC Sep 30).
+    # The previous eruption ended May 23, 2021.
+    onset: "2021-09-30T01:20:00Z"
+    window_start: "2021-07-01"
+    window_end: "2021-10-11"
+    fdsn_url: https://service.earthscope.org
+    network: HV
+    station: UWE
+    channel: HHZ
+    sources:
+      - "USGS: https://www.usgs.gov/news/new-eruption-k-lauea-summit"
+
+  - id: kilauea-2023-jun
+    volcano: Kilauea
+    region: Hawaii, USA
+    lat: 19.405
+    lon: -155.281
+    type: eruption
+    # USGS HVO: began about 4:44 a.m. HST Jun 7, 2023 in Halemaumau (14:44 UTC).
+    # The previous eruption ended Mar 7, 2023.
+    onset: "2023-06-07T14:44:00Z"
+    window_start: "2023-03-08"
+    window_end: "2023-06-19"
+    fdsn_url: https://service.earthscope.org
+    network: HV
+    station: UWE
+    channel: HHZ
+    sources:
+      - "NPS: https://home.nps.gov/havo/learn/nature/june-2023-summit-eruption.htm"
+      - "USGS HVO: https://www.usgs.gov/observatories/hvo/news/photo-and-video-chronology-kilauea-summit-eruption-june-8-2023"
+
+  - id: kilauea-2023-sep
+    volcano: Kilauea
+    region: Hawaii, USA
+    lat: 19.405
+    lon: -155.281
+    type: eruption
+    # USGS HVO: began about 3:15 p.m. HST Sep 10, 2023 (01:15 UTC Sep 11), after about an
+    # hour of rising seismicity. The previous eruption ended Jun 19, 2023.
+    onset: "2023-09-11T01:15:00Z"
+    window_start: "2023-06-20"
+    window_end: "2023-09-22"
+    fdsn_url: https://service.earthscope.org
+    network: HV
+    station: UWE
+    channel: HHZ
+    sources:
+      - "USGS HVO: https://www.usgs.gov/observatories/hvo/news/photo-and-video-chronology-kilauea-summit-september-18-2023"
+
+  - id: kilauea-2024-jun
+    volcano: Kilauea
+    region: Hawaii, USA
+    lat: 19.405
+    lon: -155.281
+    type: eruption
+    # USGS: 8.5 hour eruption about 4 km southwest of the caldera, began 12:30 a.m. HST
+    # Jun 3, 2024 (10:30 UTC). Window starts after the kilauea-2024-intrusion window ends.
+    onset: "2024-06-03T10:30:00Z"
+    window_start: "2024-03-05"
+    window_end: "2024-06-15"
+    fdsn_url: https://service.earthscope.org
+    network: HV
+    station: UWE
+    channel: HHZ
+    sources:
+      - "USGS: https://www.usgs.gov/volcanoes/kilauea/science/june-2024-kilauea-southwest-rift-zone-eruption"
+
+  - id: kilauea-2024-dec
+    volcano: Kilauea
+    region: Hawaii, USA
+    lat: 19.405
+    lon: -155.281
+    type: eruption
+    # USGS HVO (via Friends of HVNP): eruptive activity seen in webcams by 2:30 a.m. HST
+    # Dec 23, 2024 (12:30 UTC). The previous eruption (middle East Rift) ended Sep 20, 2024.
+    onset: "2024-12-23T12:30:00Z"
+    window_start: "2024-09-24"
+    window_end: "2025-01-04"
+    fdsn_url: https://service.earthscope.org
+    network: HV
+    station: UWE
+    channel: HHZ
+    sources:
+      - "Friends of HVNP citing HVO: https://www.fhvnp.org/blog/kilauea-erupts-december-23-2024"
+      - "USGS: https://www.usgs.gov/maps/march-18-2025-kilauea-summit-eruption-reference-map"
+
+  - id: pavlof-2021
+    volcano: Pavlof
+    region: Alaska, USA
+    lat: 55.417
+    lon: -161.894
+    type: eruption
+    # AVO: tremor from Jul 9, 2021 (YELLOW). Webcams showed ash bursts from a new vent on
+    # Aug 5, and AVO raised to ORANGE in a notice at 09:55 AKDT (17:55 UTC). The first ash
+    # was seen earlier that morning, so this time is an upper bound on onset.
+    onset: "2021-08-05T17:55:00Z"
+    window_start: "2021-05-06"
+    window_end: "2021-08-17"
+    fdsn_url: https://service.earthscope.org
+    network: AV
+    station: PN7A   # 6.8 km from the summit
+    channel: BHZ
+    sources:
+      - "AVO: https://avo.alaska.edu/eruption/pavlof-2021-08"
+      - "AVO HANS: https://volcanoes.usgs.gov/hans2/view/notice/DOI-USGS-AVO-2021-08-05T09:00:57-08:00"
