@@ -18,7 +18,7 @@ Work in progress. No results yet.
 | Stage | State |
 |---|---|
 | Seismic download and daily features | Working for Mauna Loa 2022 |
-| Thermal (FIRMS) download and features | Written, not yet run against the real API |
+| Thermal (FIRMS) download and features | Working for Mauna Loa 2022 |
 | Labels and merged daily table | Working, with a no-leakage test |
 | More cases (eruptions and unrest without eruption) | Not started |
 | Models and evaluation | Not started |
@@ -47,7 +47,7 @@ uv venv .venv
 uv pip install -p .venv/bin/python -r requirements.txt
 
 .venv/bin/pytest                      # run the tests
-.venv/bin/python -m scripts.fetch     # download seismic data, cache 10 minute features
+.venv/bin/python -m scripts.fetch     # download seismic and FIRMS data, cache 10 minute features
 .venv/bin/python -m scripts.build     # build the daily feature table and a sanity plot
 ```
 
