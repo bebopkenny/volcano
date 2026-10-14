@@ -64,10 +64,11 @@ def best_threshold(y: pd.Series, score: pd.Series) -> float:
 
 
 def _loco_proba(df: pd.DataFrame, cols: list[str], label: str, run: str) -> pd.Series:
-    """Probability for every row from a model trained on all other cases."""
+    """Probability for every row from a model trained on all other folds."""
     out = pd.Series(np.nan, index=df.index)
-    for case in df["case"].unique():
-        test = df["case"] == case
+    folds = df.get("fold", df["case"])
+    for f in folds.unique():
+        test = folds == f
         m = make_model(run).fit(df.loc[~test, cols], df.loc[~test, label])
         out[test] = m.predict_proba(df.loc[test, cols])[:, 1]
     return out
@@ -76,12 +77,14 @@ def _loco_proba(df: pd.DataFrame, cols: list[str], label: str, run: str) -> pd.S
 def predict(df: pd.DataFrame, label: str, run: str = "rf") -> pd.DataFrame:
     """Held-out score, threshold and alarm for each model on every row.
 
-    `df` holds pre-onset days of all cases with a fresh RangeIndex.
+    `df` holds pre-onset days of all cases with a fresh RangeIndex. An optional `fold`
+    column (for example the volcano) holds out whole groups instead of single cases.
     """
     feats = feature_sets(df, run)
     out = df[["case", "date", label]].copy()
-    for case in df["case"].unique():
-        test = df["case"] == case
+    folds = df.get("fold", df["case"])
+    for f in folds.unique():
+        test = folds == f
         train = df[~test]
         s = baseline_score(df)
         out.loc[test, "score_0"] = s[test]

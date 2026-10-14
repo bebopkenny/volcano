@@ -20,8 +20,8 @@ Work in progress. No results yet.
 | Seismic download and daily features | Working for all 6 cases |
 | Thermal (FIRMS) download and features | Working for all 6 cases |
 | Labels and merged daily table | Working, with a no-leakage test |
-| More cases (eruptions and unrest without eruption) | 4 eruptions and 2 unrest cases downloaded and built |
-| Models and evaluation | Not started |
+| More cases (eruptions and unrest without eruption) | 10 eruptions and 2 unrest cases downloaded and built |
+| Models and evaluation | Runs 1 and 2 done on all 12 cases; neither beats the RSAM baseline |
 | Web app | Vite starter page only |
 
 The full plan and milestones are in [PROJECT_BRIEF.md](PROJECT_BRIEF.md).
@@ -101,7 +101,20 @@ Every run is reported, including runs that did badly. A run's design is written 
 
 Result on the first 6 cases: worse than Run 1. At a 2 day horizon ROC AUC was 0.09 (A) and 0.16 (B), well below chance, and both models alarmed on nearly every day. At 7 days: 0.46 (A) and 0.41 (B) against 0.66 for Baseline 0. The cause is in the data, not the code: in the 2 days before onset RSAM was about 7 times normal at Shishaldin but below normal at Kīlauea 2020 and Great Sitkin. A model trained without Shishaldin learns that quiet days come before eruptions and ranks Shishaldin backwards. Baseline 0 avoids this because "high RSAM means danger" is fixed, not learned from three examples.
 
-**Then:** add more eruption cases and re-run both Run 1 and Run 2 unchanged on the larger set.
+**Runs 1 and 2 on 12 cases (10 eruptions), 2026-10-14.** Six eruptions were added (five at Kīlauea, plus Pavlof 2021) and both runs were repeated unchanged. Before running, Kīlauea 2021 was moved from station UWE to SDH: in that period UWE's 2 to 5 Hz amplitude was 0.02 to 26 times that of SDH and RIMD, which agreed with each other, and the UWE sensor epoch ends 2021-10-27. UWE matched SDH within a factor of about 2.5 in every other Kīlauea window.
+
+| Run, horizon | ROC AUC: Baseline 0 / A / B | Eruptions caught: 0 / A / B | Unrest false alarms per year: 0 / A / B | B minus A ROC AUC, 95% CI |
+|---|---|---|---|---|
+| Run 1 (rf), 2 days | 0.60 / 0.41 / 0.46 | 1 / 4 / 2 of 10 | 3 / 177 / 182 | -0.02 to 0.14 |
+| Run 1 (rf), 7 days | 0.61 / 0.41 / 0.43 | 4 / 9 / 7 of 10 | 5 / 330 / 351 | -0.03 to 0.06 |
+| Run 2 (logreg), 2 days | 0.60 / 0.36 / 0.34 | 1 / 2 / 4 of 10 | 3 / 3 / 196 | -0.06 to 0.01 |
+| Run 2 (logreg), 7 days | 0.61 / 0.52 / 0.50 | 4 / 4 / 4 of 10 | 5 / 18 / 18 | -0.05 to 0.01 |
+
+Neither model beats Baseline 0, and Model B is never reliably better than Model A: every interval for the B minus A difference includes zero. Even Baseline 0 is only weakly better than chance (2 day ROC AUC 95% CI 0.41 to 0.77).
+
+A likely reason is timing. Most Kīlauea eruptions here were preceded by hours, not days, of rising seismicity (HVO reports about an hour before September 2023), and Great Sitkin's RSAM rose for about 5 hours before its explosion. A forecast made once a day at midnight UTC cannot see those signals. Shishaldin and Pavlof, with RSAM 2 to 11 times normal in the 2 days before onset, are the exceptions.
+
+**Leave-one-volcano-out (extra check, not a planned run).** Six of the ten eruptions are at Kīlauea, so leave-one-case-out lets a model learn Kīlauea from other Kīlauea cases. Holding out every case of a volcano together gives the same picture: Model A and B ROC AUC between 0.33 and 0.51, and B minus A intervals that include zero in all four run and horizon combinations. Run with `python -m scripts.evaluate --by-volcano`.
 
 ## Cases
 
@@ -113,6 +126,12 @@ Result on the first 6 cases: worse than Run 1. At a 2 day horizon ROC AUC was 0.
 | Great Sitkin, Alaska, 2021 | Eruption | 2021-05-26 05:04 | AV.GSTD | AVO |
 | Mount Spurr, Alaska, Jan to Apr 2025 | Unrest, no eruption | none | AV.SPCP | AVO |
 | Kīlauea, Hawaii, Nov 2023 to Feb 2024 (dike intrusions) | Unrest, no eruption | none | HV.UWE | USGS HVO |
+| Kīlauea, Hawaii, 2021 | Eruption | 2021-09-30 01:20 | HV.SDH | USGS |
+| Kīlauea, Hawaii, Jun 2023 | Eruption | 2023-06-07 14:44 | HV.UWE | USGS HVO, NPS |
+| Kīlauea, Hawaii, Sep 2023 | Eruption | 2023-09-11 01:15 | HV.UWE | USGS HVO |
+| Kīlauea, Hawaii, Jun 2024 (southwest rift) | Eruption | 2024-06-03 10:30 | HV.UWE | USGS |
+| Kīlauea, Hawaii, Dec 2024 | Eruption | 2024-12-23 12:30 | HV.UWE | USGS HVO |
+| Pavlof, Alaska, 2021 | Eruption | 2021-08-05, before 17:55 | AV.PN7A | AVO |
 
 Exact source links for every onset are in `pipeline/config/cases.yaml`.
 

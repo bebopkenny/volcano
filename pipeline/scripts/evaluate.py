@@ -1,8 +1,9 @@
 """Leave-one-case-out evaluation of Baseline 0, Model A and Model B.
 
-Usage (from pipeline/): python -m scripts.evaluate [rf|logreg ...]
+Usage (from pipeline/): python -m scripts.evaluate [rf|logreg ...] [--by-volcano]
 Reads data/interim/{case}/daily.csv (run scripts.build first) and writes
 data/results/{run}_predictions_{N}d.csv and {run}_metrics_{N}d.json for N = 2 and 7.
+--by-volcano holds out every case of a volcano together (files get a _by_volcano suffix).
 Run designs are described in README.md.
 """
 import json
@@ -35,11 +36,16 @@ def report(m: dict) -> None:
 if __name__ == "__main__":
     cases = load_cases()
     df = load_days(cases)
+    args = [a for a in sys.argv[1:] if a != "--by-volcano"]
+    suffix = ""
+    if "--by-volcano" in sys.argv:
+        df["fold"] = df["case"].map(lambda c: cases[c]["volcano"])
+        suffix = "_by_volcano"
     RESULTS.mkdir(parents=True, exist_ok=True)
-    for run in sys.argv[1:] or RUNS:
+    for run in args or RUNS:
         for n in (2, 7):
             pred, metrics = evaluate(df, cases, n, run)
-            pred.to_csv(RESULTS / f"{run}_predictions_{n}d.csv", index=False)
-            (RESULTS / f"{run}_metrics_{n}d.json").write_text(json.dumps(metrics, indent=2))
+            pred.to_csv(RESULTS / f"{run}{suffix}_predictions_{n}d.csv", index=False)
+            (RESULTS / f"{run}{suffix}_metrics_{n}d.json").write_text(json.dumps(metrics, indent=2))
             report(metrics)
     print(f"\nModels: {', '.join(MODELS)}. Results in {RESULTS}")
