@@ -17,10 +17,10 @@ Work in progress. No results yet.
 
 | Stage | State |
 |---|---|
-| Seismic download and daily features | Working for Mauna Loa 2022 |
-| Thermal (FIRMS) download and features | Working for Mauna Loa 2022 |
+| Seismic download and daily features | Working for all 6 cases |
+| Thermal (FIRMS) download and features | Working for all 6 cases |
 | Labels and merged daily table | Working, with a no-leakage test |
-| More cases (eruptions and unrest without eruption) | Not started |
+| More cases (eruptions and unrest without eruption) | 4 eruptions and 2 unrest cases downloaded and built |
 | Models and evaluation | Not started |
 | Web app | Vite starter page only |
 
@@ -91,8 +91,13 @@ Windows are aggregated to one row per UTC day. Because raw amplitude depends on 
 | Case | Type | Onset (UTC) | Station | Source |
 |---|---|---|---|---|
 | Mauna Loa, Hawaii, 2022 | Eruption | 2022-11-28 09:30 | HV.MOKD | USGS HVO |
+| Kīlauea, Hawaii, 2020 | Eruption | 2020-12-21 07:30 | HV.UWE | USGS HVO |
+| Shishaldin, Alaska, 2023 | Eruption | 2023-07-12, approximate | AV.SSLS | AVO |
+| Great Sitkin, Alaska, 2021 | Eruption | 2021-05-26 05:04 | AV.GSTD | AVO |
+| Mount Spurr, Alaska, Jan to Apr 2025 | Unrest, no eruption | none | AV.SPCP | AVO |
+| Kīlauea, Hawaii, Nov 2023 to Feb 2024 (dike intrusions) | Unrest, no eruption | none | HV.UWE | USGS HVO |
 
-More eruptions and unrest-without-eruption cases will be added.
+Exact source links for every onset are in `pipeline/config/cases.yaml`.
 
 ## References
 
