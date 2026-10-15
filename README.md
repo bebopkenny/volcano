@@ -22,7 +22,7 @@ Work in progress. No results yet.
 | Labels and merged daily table | Working, with a no-leakage test |
 | More cases (eruptions and unrest without eruption) | 10 eruptions and 2 unrest cases downloaded and built |
 | Models and evaluation | Runs 1 and 2 done on all 12 cases; neither beats the RSAM baseline |
-| Web app | Vite starter page only |
+| Web app | Shell done: banner, routing, overview, case list; charts next |
 
 The full plan and milestones are in [PROJECT_BRIEF.md](PROJECT_BRIEF.md).
 
