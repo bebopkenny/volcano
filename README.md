@@ -49,6 +49,8 @@ uv pip install -p .venv/bin/python -r requirements.txt
 .venv/bin/pytest                      # run the tests
 .venv/bin/python -m scripts.fetch     # download seismic and FIRMS data, cache 10 minute features
 .venv/bin/python -m scripts.build     # build the daily feature table and a sanity plot
+.venv/bin/python -m scripts.evaluate  # train and score the models, leave one case out
+.venv/bin/python -m scripts.export    # write public/data/*.json for the web app
 ```
 
 Both scripts accept case ids (for example `mauna-loa-2022`) to run a single case. Cases are defined in `pipeline/config/cases.yaml`. Downloads and intermediate tables go to `pipeline/data/`, which is not committed.

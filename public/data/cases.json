@@ -1,0 +1,189 @@
+[
+ {
+  "id": "mauna-loa-2022",
+  "volcano": "Mauna Loa",
+  "region": "Hawaii, USA",
+  "lat": 19.475,
+  "lon": -155.608,
+  "type": "eruption",
+  "onset": "2022-11-28T09:30:00Z",
+  "windowStart": "2022-08-29",
+  "windowEnd": "2022-12-10",
+  "station": "HV.MOKD",
+  "sources": [
+   "USGS HVO: https://www.usgs.gov/volcanoes/mauna-loa/science/november-27-december-10-2022-eruption-mauna-loa",
+   "GVP volcano 332020 (cross check pending)"
+  ]
+ },
+ {
+  "id": "kilauea-2020",
+  "volcano": "Kilauea",
+  "region": "Hawaii, USA",
+  "lat": 19.405,
+  "lon": -155.281,
+  "type": "eruption",
+  "onset": "2020-12-21T07:30:00Z",
+  "windowStart": "2020-09-21",
+  "windowEnd": "2021-01-01",
+  "station": "HV.UWE",
+  "sources": [
+   "USGS HVO: https://www.usgs.gov/volcanoes/kilauea/news/photo-and-video-chronology-kilauea-december-20-2020"
+  ]
+ },
+ {
+  "id": "shishaldin-2023",
+  "volcano": "Shishaldin",
+  "region": "Alaska, USA",
+  "lat": 54.756,
+  "lon": -163.97,
+  "type": "eruption",
+  "onset": "2023-07-12T06:00:00Z",
+  "windowStart": "2023-04-12",
+  "windowEnd": "2023-07-24",
+  "station": "AV.SSLS",
+  "sources": [
+   "AVO HANS: https://avo.alaska.edu/news/hans/DOI-USGS-AVO-2023-07-18T13:13:17-08:00",
+   "AVO HANS: https://volcanoes.usgs.gov/hans-public/notice/DOI-USGS-AVO-2023-07-18T06:10:01-08:00"
+  ]
+ },
+ {
+  "id": "great-sitkin-2021",
+  "volcano": "Great Sitkin",
+  "region": "Alaska, USA",
+  "lat": 52.076,
+  "lon": -176.13,
+  "type": "eruption",
+  "onset": "2021-05-26T05:04:00Z",
+  "windowStart": "2021-02-25",
+  "windowEnd": "2021-06-07",
+  "station": "AV.GSTD",
+  "sources": [
+   "AVO image and caption: https://avo.alaska.edu/images/image.php?id=170261"
+  ]
+ },
+ {
+  "id": "spurr-2025",
+  "volcano": "Mount Spurr",
+  "region": "Alaska, USA",
+  "lat": 61.299,
+  "lon": -152.251,
+  "type": "unrest",
+  "onset": null,
+  "windowStart": "2025-01-01",
+  "windowEnd": "2025-04-30",
+  "station": "AV.SPCP",
+  "sources": [
+   "AVO HANS: https://avo.alaska.edu/news/hans/DOI-USGS-AVO-2025-02-07T01:17:45+00:00",
+   "AVO HANS: https://avo.alaska.edu/news/hans/DOI-USGS-AVO-2025-06-13T18:14:45+00:00"
+  ]
+ },
+ {
+  "id": "kilauea-2024-intrusion",
+  "volcano": "Kilauea",
+  "region": "Hawaii, USA",
+  "lat": 19.405,
+  "lon": -155.281,
+  "type": "unrest",
+  "onset": null,
+  "windowStart": "2023-11-15",
+  "windowEnd": "2024-02-29",
+  "station": "HV.UWE",
+  "sources": [
+   "USGS HVO: https://volcanoes.usgs.gov/hans-public/notice/DOI-USGS-HVO-2024-02-01T19:44:10+00:00",
+   "USGS HVO: https://www.usgs.gov/observatories/hvo/news/volcano-watch-kilauea-intrusion-was-a-textbook-example-dike-propagation"
+  ]
+ },
+ {
+  "id": "kilauea-2021",
+  "volcano": "Kilauea",
+  "region": "Hawaii, USA",
+  "lat": 19.405,
+  "lon": -155.281,
+  "type": "eruption",
+  "onset": "2021-09-30T01:20:00Z",
+  "windowStart": "2021-07-01",
+  "windowEnd": "2021-10-11",
+  "station": "HV.SDH",
+  "sources": [
+   "USGS: https://www.usgs.gov/news/new-eruption-k-lauea-summit"
+  ]
+ },
+ {
+  "id": "kilauea-2023-jun",
+  "volcano": "Kilauea",
+  "region": "Hawaii, USA",
+  "lat": 19.405,
+  "lon": -155.281,
+  "type": "eruption",
+  "onset": "2023-06-07T14:44:00Z",
+  "windowStart": "2023-03-08",
+  "windowEnd": "2023-06-19",
+  "station": "HV.UWE",
+  "sources": [
+   "NPS: https://home.nps.gov/havo/learn/nature/june-2023-summit-eruption.htm",
+   "USGS HVO: https://www.usgs.gov/observatories/hvo/news/photo-and-video-chronology-kilauea-summit-eruption-june-8-2023"
+  ]
+ },
+ {
+  "id": "kilauea-2023-sep",
+  "volcano": "Kilauea",
+  "region": "Hawaii, USA",
+  "lat": 19.405,
+  "lon": -155.281,
+  "type": "eruption",
+  "onset": "2023-09-11T01:15:00Z",
+  "windowStart": "2023-06-20",
+  "windowEnd": "2023-09-22",
+  "station": "HV.UWE",
+  "sources": [
+   "USGS HVO: https://www.usgs.gov/observatories/hvo/news/photo-and-video-chronology-kilauea-summit-september-18-2023"
+  ]
+ },
+ {
+  "id": "kilauea-2024-jun",
+  "volcano": "Kilauea",
+  "region": "Hawaii, USA",
+  "lat": 19.405,
+  "lon": -155.281,
+  "type": "eruption",
+  "onset": "2024-06-03T10:30:00Z",
+  "windowStart": "2024-03-05",
+  "windowEnd": "2024-06-15",
+  "station": "HV.UWE",
+  "sources": [
+   "USGS: https://www.usgs.gov/volcanoes/kilauea/science/june-2024-kilauea-southwest-rift-zone-eruption"
+  ]
+ },
+ {
+  "id": "kilauea-2024-dec",
+  "volcano": "Kilauea",
+  "region": "Hawaii, USA",
+  "lat": 19.405,
+  "lon": -155.281,
+  "type": "eruption",
+  "onset": "2024-12-23T12:30:00Z",
+  "windowStart": "2024-09-24",
+  "windowEnd": "2025-01-04",
+  "station": "HV.UWE",
+  "sources": [
+   "Friends of HVNP citing HVO: https://www.fhvnp.org/blog/kilauea-erupts-december-23-2024",
+   "USGS: https://www.usgs.gov/maps/march-18-2025-kilauea-summit-eruption-reference-map"
+  ]
+ },
+ {
+  "id": "pavlof-2021",
+  "volcano": "Pavlof",
+  "region": "Alaska, USA",
+  "lat": 55.417,
+  "lon": -161.894,
+  "type": "eruption",
+  "onset": "2021-08-05T17:55:00Z",
+  "windowStart": "2021-05-06",
+  "windowEnd": "2021-08-17",
+  "station": "AV.PN7A",
+  "sources": [
+   "AVO: https://avo.alaska.edu/eruption/pavlof-2021-08",
+   "AVO HANS: https://volcanoes.usgs.gov/hans2/view/notice/DOI-USGS-AVO-2021-08-05T09:00:57-08:00"
+  ]
+ }
+]
